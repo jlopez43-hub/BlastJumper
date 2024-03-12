@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Launcher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform FirePoint;
+    public GameObject rocketPrefab;
+    public Rigidbody rb;
+
+    private void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Firing");
+            Shoot();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Shoot()
     {
-        
+        Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation);
     }
 }
