@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+ * Judith Lopez
+ * Firing from launcher
+ * 3/12/2024
+ */
 
 public class Launcher : MonoBehaviour
 {
