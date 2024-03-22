@@ -17,7 +17,7 @@ public class Launcher : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("Firing");
+            Debug.Log("Firing");
             Shoot();
         }
     }
