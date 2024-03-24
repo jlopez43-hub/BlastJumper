@@ -1211,6 +1211,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 806364071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &2036208261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 507673726637360277, guid: 6f01b78ec1ee24452b5d716161e91da2,
@@ -1322,6 +1323,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095479705}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
