@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4194466929012228838}
   m_Layer: 0
   m_Name: 5x1x5HazardBlock
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
