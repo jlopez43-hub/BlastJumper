@@ -121,9 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expl: {fileID: 7896738300659321638, guid: 6229d2db6b4484b47971d409580d88ec, type: 3}
   explForce: 800
-  radius: 2
+  radius: 4
   rb: {fileID: 1321560404784199881}
-  speed: 25
+  speed: 20
   explTime: 0.2
 --- !u!54 &1321560404784199881
 Rigidbody:
