@@ -11,13 +11,12 @@ public class Launcher : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject rocketPrefab;
-    public Rigidbody rb;
 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Firing");
+            //Debug.Log("Firing");
             Shoot();
         }
     }
