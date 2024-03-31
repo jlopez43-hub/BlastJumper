@@ -63,9 +63,6 @@ public class PlayerController : MonoBehaviour
             moveDirection.y = movementDirectionY;
         }
 
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
         if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
@@ -79,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, -0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
