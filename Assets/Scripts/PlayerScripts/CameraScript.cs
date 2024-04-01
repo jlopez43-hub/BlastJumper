@@ -30,6 +30,6 @@ public class CameraScript : MonoBehaviour
         SmoothVect.y = Mathf.Lerp(SmoothVect.y, md.y, 1f / smoothing);
         MouseLook += SmoothVect;
         transform.localRotation = Quaternion.AngleAxis(-MouseLook.y, Vector3.right);
-        PlayerChar.transform.localRotation = Quaternion.AngleAxis(MouseLook.x, PlayerChar.transform.up);
+        PlayerChar.transform.localRotation = Quaternion.AngleAxis(+MouseLook.x, PlayerChar.transform.up);
     }
 }

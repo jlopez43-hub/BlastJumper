@@ -671,6 +671,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 806364071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1996689614 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 600318802882411564, guid: f898008a989fc495cb13ca3796161a2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7332795270018530111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1003457528006132222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +758,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 931636918135456990, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230736058762761493, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
+      propertyPath: PlayerCamera
+      value: 
+      objectReference: {fileID: 1996689614}
     - target: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       propertyPath: m_LocalPosition.x
