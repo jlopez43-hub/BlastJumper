@@ -9,28 +9,28 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    Vector2 MouseLook;
-    Vector2 SmoothVec;
-    public float sensitivity = 5f;
-    public float smoothing = 2f;
-    GameObject PlayerChar;
-
-    // Start is called before the first frame update
-    void Start()
+    public float Sensitivity
     {
-        PlayerChar = this.transform.parent.gameObject;
+        get { return sensitivity; }
+        set { sensitivity = value; }
     }
+    [Range(0.1f, 9f)][SerializeField] float sensitivity = 2f;
+    [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
+    [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
 
-    // Update is called once per frame
+    Vector2 rotation = Vector2.zero;
+    const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
+    const string yAxis = "Mouse Y";
+
     void Update()
     {
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        SmoothVec.x = Mathf.Lerp(SmoothVec.x, md.x, 1f / smoothing);
-        SmoothVec.y = Mathf.Lerp(SmoothVec.y, md.y, 1f / smoothing);
-        MouseLook += SmoothVec;
-        transform.localRotation = Quaternion.AngleAxis(MouseLook.y, Vector3.right);
-        transform.localRotation = Quaternion.AngleAxis(MouseLook.x, Vector3.up);
-    
+        rotation.x += Input.GetAxis(xAxis) * sensitivity;
+        rotation.y += Input.GetAxis(yAxis) * sensitivity;
+        rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
+        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+        var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
+
+        transform.localRotation = xQuat * yQuat;
     }
+
 }
