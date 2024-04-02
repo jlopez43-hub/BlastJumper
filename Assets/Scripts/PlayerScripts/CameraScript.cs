@@ -10,7 +10,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     Vector2 MouseLook;
-    Vector2 SmoothVect;
+    Vector2 SmoothVec;
     public float sensitivity = 5f;
     public float smoothing = 2f;
     GameObject PlayerChar;
@@ -26,10 +26,11 @@ public class CameraScript : MonoBehaviour
     {
         var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        SmoothVect.x = Mathf.Lerp(SmoothVect.x, md.x, 1f / smoothing);
-        SmoothVect.y = Mathf.Lerp(SmoothVect.y, md.y, 1f / smoothing);
-        MouseLook += SmoothVect;
-        transform.localRotation = Quaternion.AngleAxis(-MouseLook.y, Vector3.right);
-        PlayerChar.transform.localRotation = Quaternion.AngleAxis(+MouseLook.x, PlayerChar.transform.up);
+        SmoothVec.x = Mathf.Lerp(SmoothVec.x, md.x, 1f / smoothing);
+        SmoothVec.y = Mathf.Lerp(SmoothVec.y, md.y, 1f / smoothing);
+        MouseLook += SmoothVec;
+        transform.localRotation = Quaternion.AngleAxis(MouseLook.y, Vector3.right);
+        transform.localRotation = Quaternion.AngleAxis(MouseLook.x, Vector3.up);
+    
     }
 }

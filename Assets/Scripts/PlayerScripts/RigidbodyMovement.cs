@@ -54,9 +54,9 @@ public class RigidbodyMovement : MonoBehaviour
 
         xRot -= context.ReadValue<Vector2>().y * sensitivity;
 
-        //transform.Rotate(0f, context.ReadValue<Vector2>().x * sensitivity, 0f);
+       
         PlayerCamera.transform.localRotation = Quaternion.Euler(0, xRot, 0f);
-        //PlayerCamera.transform.localRotation = Quaternion.Euler(xRot, 0, 0);
+  
     }
 
 
