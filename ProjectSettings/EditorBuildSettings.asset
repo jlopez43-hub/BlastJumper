@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 87376371c7d7d4c44a0629b0a2131324
   - enabled: 1
+    path: Assets/Scenes/BlastJumperTutorialLevel.unity
+    guid: 5b38e9bbc7ab5e64981aa7aadd063fbe
+  - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: ce9b76aa120f04034988bd6367374f59
   m_configObjects:
