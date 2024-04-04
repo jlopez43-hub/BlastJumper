@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
+  - WallCheck
+  - LongJumpCheck
+  - SpiralCheck
   layers:
   - Default
   - TransparentFX
