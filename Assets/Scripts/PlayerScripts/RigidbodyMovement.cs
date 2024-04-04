@@ -32,8 +32,15 @@ public class RigidbodyMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Vector2 moveVec = playerActions.Move.Move.ReadValue<Vector2>();
-        GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * speed, ForceMode.Force);
+
+        Vector2 moveInput = playerActions.Move.Move.ReadValue<Vector2>();
+        Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        // Convert the local movement direction to global space
+        moveDirection = transform.TransformDirection(moveDirection);
+
+        // Apply force to move the Rigidbody
+        GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Force);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -54,9 +61,9 @@ public class RigidbodyMovement : MonoBehaviour
 
         xRot -= context.ReadValue<Vector2>().y * sensitivity;
 
-       
+
         PlayerCamera.transform.localRotation = Quaternion.Euler(0, xRot, 0f);
-  
+ 
     }
 
 
