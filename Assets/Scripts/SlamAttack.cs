@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 //Nathon Polling
 public class SlamAttack : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class SlamAttack : MonoBehaviour
     public float slamSpeed = 70;
     public float currentSpeed;
     public bool allowSlam = false;
+    public Text speedText;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,9 @@ public class SlamAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Updates the text with the current speed
+        speedText.text = "Speed: " + currentSpeed.ToString("F2"); // F2 formats to two decimal places
+
         // Check if Rigidbody is not null
         if (rb != null)
         {
