@@ -21,6 +21,10 @@ public class RigidbodyMovement : MonoBehaviour
     private float sensitivity;
     public Transform PlayerCamera;
     public Rigidbody PlayerBody;
+    bool isgrounded = false;
+    float force = 28f;
+
+   
 
     private void Awake()
     {
@@ -41,16 +45,30 @@ public class RigidbodyMovement : MonoBehaviour
 
         // Apply force to move the Rigidbody
         GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Force);
+
+        //will be only to jump if the player is on the floor
+        if (Input.GetKeyDown("space"))
+        {
+            if (isgrounded == true)
+                PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
+            isgrounded = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
+        
         Debug.Log("Jump:" + context.phase);
         if (context.performed)
         {
-            Debug.Log("Real Jump");
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
+
+        if (isgrounded == true)
+        {
+            PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
+        }
+        isgrounded = false;
     }
 
 
@@ -71,5 +89,18 @@ public class RigidbodyMovement : MonoBehaviour
     {
         Vector2 moveVec = context.ReadValue<Vector2>();
         GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * 5f, ForceMode.Force);
+    }
+
+    private void OnTriggerEnter(Collider theCollision)
+    {
+       if (theCollision.gameObject.tag == "floor")
+       {
+            isgrounded = true;
+       }
+        else
+        {
+            isgrounded = false;
+        }
+
     }
 }

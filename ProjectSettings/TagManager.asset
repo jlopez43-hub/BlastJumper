@@ -9,6 +9,7 @@ TagManager:
   - LongJumpCheck
   - SpiralCheck
   - TutorialEnd
+  - Enemy
   layers:
   - Default
   - TransparentFX
