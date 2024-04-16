@@ -11,20 +11,13 @@ public class Launcher : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject rocketPrefab;
-    private float gunHeat;
     
 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("Firing");
             Shoot();
-        }
-
-        if (gunHeat > 0)
-        {
-            gunHeat -= Time.deltaTime;
         }
 
        
@@ -34,13 +27,6 @@ public class Launcher : MonoBehaviour
     {
   
         Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation);
-
-        if (FirePoint)
-            if (gunHeat <= 0)
-            {
-                gunHeat = 0.25f;
-                Shoot();
-            }
         
     }
 }

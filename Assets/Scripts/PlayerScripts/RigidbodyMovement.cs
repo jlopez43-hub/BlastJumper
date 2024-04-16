@@ -21,10 +21,7 @@ public class RigidbodyMovement : MonoBehaviour
     private float sensitivity;
     public Transform PlayerCamera;
     public Rigidbody PlayerBody;
-    bool isgrounded = false;
-    float force = 28f;
-
-   
+    private int jumpCounter;
 
     private void Awake()
     {
@@ -36,40 +33,24 @@ public class RigidbodyMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        Vector2 moveVec = playerActions.Move.Move.ReadValue<Vector2>();
+        GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * speed, ForceMode.Force);
 
-        Vector2 moveInput = playerActions.Move.Move.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-
-        // Convert the local movement direction to global space
-        moveDirection = transform.TransformDirection(moveDirection);
-
-        // Apply force to move the Rigidbody
-        GetComponent<Rigidbody>().AddForce(moveDirection * speed, ForceMode.Force);
-
-        //will be only to jump if the player is on the floor
-        if (Input.GetKeyDown("space"))
-        {
-            if (isgrounded == true)
-                PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
-            isgrounded = false;
-        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        
-        Debug.Log("Jump:" + context.phase);
-        if (context.performed)
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-        }
 
-        if (isgrounded == true)
-        {
-            PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
-        }
-        isgrounded = false;
+        if (jumpCounter == 0)
+            return;
+
+        Debug.Log("Jump");
+        PlayerBody.velocity = Vector2.up * jumpHeight;
+        jumpCounter--;
+
     }
+
+   
 
 
 
@@ -91,16 +72,6 @@ public class RigidbodyMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * 5f, ForceMode.Force);
     }
 
-    private void OnTriggerEnter(Collider theCollision)
-    {
-       if (theCollision.gameObject.tag == "floor")
-       {
-            isgrounded = true;
-       }
-        else
-        {
-            isgrounded = false;
-        }
 
-    }
+  
 }
