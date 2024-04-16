@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6772693685823579665
+--- !u!1001 &4495722196679551931
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       propertyPath: m_Name
-      value: PlayerController 1
+      value: PlayerController 1 1
       objectReference: {fileID: 0}
     - target: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.5545306
       objectReference: {fileID: 0}
     - target: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.36703777
       objectReference: {fileID: 0}
     - target: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
@@ -140,25 +140,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2518019777557813534}
+      addedObject: {fileID: 3011486272289506425}
     - targetCorrespondingSourceObject: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 250495414454072651}
+      addedObject: {fileID: 7115384646277655252}
+    - targetCorrespondingSourceObject: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8612920591618217184}
   m_SourcePrefab: {fileID: 100100000, guid: f898008a989fc495cb13ca3796161a2e, type: 3}
---- !u!1 &6259251209581990089 stripped
+--- !u!1 &3838229398951452003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
     type: 3}
-  m_PrefabInstance: {fileID: 6772693685823579665}
+  m_PrefabInstance: {fileID: 4495722196679551931}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2518019777557813534
+--- !u!114 &3011486272289506425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6259251209581990089}
+  m_GameObject: {fileID: 3838229398951452003}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acf4882c19a01544ebe5e90dddbd12f6, type: 3}
@@ -172,13 +176,13 @@ MonoBehaviour:
   objectiveA: JUMP THE WALL
   objectiveB: CROSS THE LAVA
   objectiveC: CLIMB THE SPIRAL
---- !u!114 &250495414454072651
+--- !u!114 &7115384646277655252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6259251209581990089}
+  m_GameObject: {fileID: 3838229398951452003}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44dca786f4959aa4fa0a3908780ae860, type: 3}
@@ -188,3 +192,19 @@ MonoBehaviour:
   currentSpeed: 0
   allowSlam: 0
   speedText: {fileID: 0}
+--- !u!114 &8612920591618217184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838229398951452003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e474670abb31554089b5bf2f20dd34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  Player: {fileID: 3838229398951452003}
+  RespawnPoint: {fileID: 0}
