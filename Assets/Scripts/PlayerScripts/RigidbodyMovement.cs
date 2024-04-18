@@ -18,10 +18,10 @@ public class RigidbodyMovement : MonoBehaviour
     //camera movement variables
     private Vector2 PlayerMouseInput;
     private float xRot;
-    private float sensitivity;
+    private float sensitivity = 2f;
     public Transform PlayerCamera;
     public Rigidbody PlayerBody;
-    private int jumpCounter;
+    private int jumpCounter = 1;
 
     private void Awake()
     {
@@ -33,20 +33,29 @@ public class RigidbodyMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         Vector2 moveVec = playerActions.Move.Move.ReadValue<Vector2>();
-        GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * speed, ForceMode.Force);
+
+        // Calculate movement direction based on the player's forward direction
+        Vector3 moveDirection = PlayerCamera.forward * moveVec.y + PlayerCamera.right * moveVec.x;
+        moveDirection.y = 0f; // Keep the movement only in the horizontal plane
+        moveDirection.Normalize();
+
+        // Apply movement force
+        PlayerBody.AddForce(moveDirection * speed, ForceMode.Force);
 
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-
+        /* I just did this so I could test the movement with jumps
         if (jumpCounter == 0)
             return;
-
+        */
         Debug.Log("Jump");
         PlayerBody.velocity = Vector2.up * jumpHeight;
         jumpCounter--;
+
 
     }
 
@@ -56,13 +65,11 @@ public class RigidbodyMovement : MonoBehaviour
 
     public void MovePlayerCamera(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<Vector2>());
 
-        xRot -= context.ReadValue<Vector2>().y * sensitivity;
+        // Adjust the rotation of the player's body around the y-axis
+        float yRot = transform.eulerAngles.y + context.ReadValue<Vector2>().x * sensitivity;
+        transform.rotation = Quaternion.Euler(0f, yRot, 0f);
 
-
-        PlayerCamera.transform.localRotation = Quaternion.Euler(0, xRot, 0f);
- 
     }
 
 
