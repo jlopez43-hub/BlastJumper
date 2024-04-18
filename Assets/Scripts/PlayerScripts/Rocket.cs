@@ -10,7 +10,8 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public GameObject expl;
-    public float explForce, radius;
+    public float explForce = 40f;
+    public float radius = 2f;
     public Rigidbody rb;
     [SerializeField]
     private float speed = 20f;
