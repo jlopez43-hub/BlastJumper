@@ -25,10 +25,13 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter (Collision collision)
     {
-        GameObject _expl = Instantiate(expl, transform.position, transform.rotation);
-        Destroy(_expl, explTime);
-        knockBack();
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player"))//makes it so it wont explode on the player tag
+        {
+            GameObject _expl = Instantiate(expl, transform.position, transform.rotation);
+            Destroy(_expl, explTime);
+            knockBack();
+            Destroy(gameObject);
+        }
     }
 
     public void knockBack()
