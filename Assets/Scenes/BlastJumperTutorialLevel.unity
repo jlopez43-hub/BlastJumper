@@ -44819,6 +44819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7115384646277655252, guid: 868ef808e90dcb74786bfc1b631e4e7b,
+        type: 3}
+      propertyPath: speedText
+      value: 
+      objectReference: {fileID: 126076947}
     - target: {fileID: 8612920591618217184, guid: 868ef808e90dcb74786bfc1b631e4e7b,
         type: 3}
       propertyPath: RespawnPoint
