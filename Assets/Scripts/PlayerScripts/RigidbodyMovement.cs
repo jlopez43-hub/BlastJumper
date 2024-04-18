@@ -74,22 +74,17 @@ public class RigidbodyMovement : MonoBehaviour
             Debug.Log("Jump:" + context.phase);
             if (context.performed)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+               GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Force);
+                
             }
             
-
                 //if (jumpCounter == 0)
                    // return;
 
-                Debug.Log("Jump");
-                //PlayerBody.velocity = Vector2.up * jumpHeight;
-                
 
-                PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
-               
+               PlayerBody.velocity += new Vector3(PlayerBody.velocity.x, force);//Adds force instead of making it a new one, makes jump feel better
 
                 isgrounded = false;
-
 
         }
 
@@ -108,7 +103,7 @@ public class RigidbodyMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveVec = context.ReadValue<Vector2>();
-        GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * 5f, ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(new Vector3(moveVec.x, 0, moveVec.y) * 5f, ForceMode.Acceleration);
     }
 
 
