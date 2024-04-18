@@ -21,7 +21,13 @@ public class RigidbodyMovement : MonoBehaviour
     private float sensitivity = 2f;
     public Transform PlayerCamera;
     public Rigidbody PlayerBody;
+
+    bool isgrounded = false;
+    float force = 8f;
     private int jumpCounter = 1;
+
+    public float groundCheckDistance;
+    public float bufferCheckDistance = 0.1f;
 
     private void Awake()
     {
@@ -44,26 +50,52 @@ public class RigidbodyMovement : MonoBehaviour
         // Apply movement force
         PlayerBody.AddForce(moveDirection * speed, ForceMode.Force);
 
+
+        groundCheckDistance = (GetComponent<CapsuleCollider>().height / 2) + bufferCheckDistance;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance))
+        {
+            isgrounded = true;
+        }
+        else
+        {
+            isgrounded = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        /* I just did this so I could test the movement with jumps
-        if (jumpCounter == 0)
-            return;
-        */
-        Debug.Log("Jump");
-        PlayerBody.velocity = Vector2.up * jumpHeight;
-        jumpCounter--;
 
+        if (isgrounded == true)
+        {
+
+            jumpCounter--;
+
+            Debug.Log("Jump:" + context.phase);
+            if (context.performed)
+            {
+                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            }
+            
+
+                //if (jumpCounter == 0)
+                   // return;
+
+                Debug.Log("Jump");
+                //PlayerBody.velocity = Vector2.up * jumpHeight;
+                
+
+                PlayerBody.velocity = new Vector3(PlayerBody.velocity.x, force);
+               
+
+                isgrounded = false;
+
+
+        }
 
     }
 
-   
-
-
-
-    public void MovePlayerCamera(InputAction.CallbackContext context)
+        public void MovePlayerCamera(InputAction.CallbackContext context)
     {
 
         // Adjust the rotation of the player's body around the y-axis
@@ -80,5 +112,4 @@ public class RigidbodyMovement : MonoBehaviour
     }
 
 
-  
 }
