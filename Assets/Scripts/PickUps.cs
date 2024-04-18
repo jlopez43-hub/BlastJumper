@@ -15,15 +15,19 @@ public class PickUps : MonoBehaviour
 
     public float myValue;
 
-    // Start is called before the first frame update
+    public float rotAngle = 20;
+
     void Start()
     {
-        
+
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(new Vector3(0, rotAngle * Time.deltaTime, 0), Space.Self);
     }
+
+
+ 
 }

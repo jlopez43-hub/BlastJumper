@@ -57,7 +57,6 @@ public class RigidbodyMovement : MonoBehaviour
         jumpCounter--;
 
 
-
     }
 
    
