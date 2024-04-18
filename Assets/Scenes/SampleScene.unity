@@ -1143,6 +1143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8245653097217173733, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245653097217173733, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.84
       objectReference: {fileID: 0}
@@ -1153,8 +1158,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944849191504836988, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
+      propertyPath: firerate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944849191504836988, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
       propertyPath: delayTime
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944849191504836988, guid: f898008a989fc495cb13ca3796161a2e,
+        type: 3}
+      propertyPath: rocketForce
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

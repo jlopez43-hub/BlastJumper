@@ -11,7 +11,10 @@ public class Launcher : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject rocketPrefab;
-    private float gunHeat;
+    public float rocketForce;
+    public float firerate;
+    float nextfire;
+    
 
     private void Update()
     {
@@ -19,25 +22,20 @@ public class Launcher : MonoBehaviour
         {
             Shoot();
         }
-
-        if (gunHeat > 0)
-        {
-            gunHeat -= Time.deltaTime;
-        }
-
     }
 
     void Shoot()
     {
 
-        if (FirePoint)
-            if (gunHeat <= 0)
-            {
-                gunHeat = 0.25f;
-                Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation);
-            }
+        if(Time.time>nextfire)
+        {
+            nextfire = Time.time + firerate;
 
-  
+            GameObject rocket = Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation);
+            rocket.GetComponent<Rigidbody>().AddForce(FirePoint.right * rocketForce, ForceMode.Impulse);
+        }
+
+        
 
 
     }
