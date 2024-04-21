@@ -9,7 +9,8 @@ public class HealthBar : PlayerHealth
 
     public void Start()
     {
-        //setting max value for slider
+        //setting max value for slider 
+        //Note: NOT CORRECTLY UPDATING MAXHEALTH VALUE. 
         slider.maxValue = maxHealth;
     }
 
@@ -17,7 +18,7 @@ public class HealthBar : PlayerHealth
     {
 
         //not updating currentHealth properly
-        //sets slider value to currentHealth from HealthBar script
+        //sets slider value to initial currentHealth from HealthBar script
         //slider.value = Component.GetComponent<PlayerHealth>.currentHealth;
 
         Debug.Log("Health Updated to " + currentHealth);

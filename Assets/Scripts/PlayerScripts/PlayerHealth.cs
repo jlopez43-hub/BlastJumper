@@ -40,6 +40,10 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(20);
         }
+        if (collider.gameObject.tag == "EnemyBullet")
+        {
+            TakeDamage(20);
+        }
     }
 
     void TakeDamage(int damage)
