@@ -132,11 +132,11 @@ Transform:
   m_GameObject: {fileID: 1137725689841819465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.6666667}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 37619246682452418}
+  m_Father: {fileID: 6671296110085490691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476456930594385355
 GameObject:
@@ -252,6 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6671296110085490691}
+  - component: {fileID: 5767907934242001413}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -267,14 +268,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582632125199057003}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.18300748, y: 2, z: 20.778103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 37619246682452418}
+  - {fileID: 4183985596873139934}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &5767907934242001413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582632125199057003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50f306295323ba43ab27aa462f08786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  shootInterval: 5
+  enemyBullet: {fileID: 2435691898687311998, guid: ccd24f3566177be4a9ed1651319e1547,
+    type: 3}
+  firePoint: {fileID: 4183985596873139934}
 --- !u!1 &1937454683891395720
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +518,6 @@ GameObject:
   - component: {fileID: 8081042077119478944}
   - component: {fileID: 1778047986933030991}
   - component: {fileID: 7188525026392760392}
-  - component: {fileID: 3341620865651568740}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Enemy
@@ -524,7 +542,6 @@ Transform:
   - {fileID: 4616871648304755762}
   - {fileID: 8876233638009708900}
   - {fileID: 8097204649899326027}
-  - {fileID: 4183985596873139934}
   m_Father: {fileID: 6671296110085490691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8081042077119478944
@@ -598,20 +615,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3341620865651568740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168768082287137490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f50f306295323ba43ab27aa462f08786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 3473891095564382001, guid: f898008a989fc495cb13ca3796161a2e, type: 3}
-  shootInterval: 5
-  enemyBullet: {fileID: 2435691898687311998, guid: ccd24f3566177be4a9ed1651319e1547,
-    type: 3}
-  firePoint: {fileID: 4183985596873139934}

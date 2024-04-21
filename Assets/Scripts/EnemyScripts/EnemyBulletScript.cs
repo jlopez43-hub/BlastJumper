@@ -17,9 +17,23 @@ public class EnemyBulletScript : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter (Collision collision)
     {
+        //CHeck to see if it really is colliding with stuff
         //Debug.Log("Collided with " + gameObject.tag);
-        Destroy(this.gameObject);
+        //Not destroying for some reason
+        if (collision.gameObject.tag != "Wall")
+        {
+            DestroyImmediate(this.gameObject);
+        }
+        if (collision.gameObject.tag != "Player")
+        {
+            DestroyImmediate(this.gameObject);
+        }
+    }
+
+    private void DestroySelf()
+    {
+        DestroyImmediate(gameObject);
     }
 }
