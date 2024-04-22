@@ -14,19 +14,23 @@ public class PlayerHealth : MonoBehaviour
     public Transform RespawnPoint;
     //REMEMBER TO CONNECT TO HEALTH BAR
 
+    //assigned health bar - J
+    public HealthBar healthBar; 
+
     private void Awake()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void Update()
     {
         //test code to see if the health bar goes down when health goes down
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Test Damage Triggered");
-            TakeDamage(20);
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+           //Debug.Log("Test Damage Triggered");
+            //TakeDamage(20);
+        //}
 
         if(currentHealth <= 0)
         {
@@ -50,6 +54,9 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log("Damaged for " + damage);
+        
+        //Set it to health bar - J
+        healthBar.SetHealth(currentHealth);
     }
 
     private void Respawn()
