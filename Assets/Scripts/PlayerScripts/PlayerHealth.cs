@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hazard")
         {
-            TakeDamage(20);
+            TakeDamage(50);
         }
         if (collision.gameObject.tag == "EnemyBullet")
         {
