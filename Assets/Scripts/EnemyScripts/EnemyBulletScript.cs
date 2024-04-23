@@ -20,20 +20,15 @@ public class EnemyBulletScript : MonoBehaviour
     private void OnCollisionEnter (Collision collision)
     {
         //CHeck to see if it really is colliding with stuff
-        //Debug.Log("Collided with " + gameObject.tag);
+        Debug.Log("Collided with " + gameObject.tag);
         //Not destroying for some reason
-        if (collision.gameObject.tag != "Wall")
+        if (collision.gameObject.tag == "Wall")
         {
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
-    }
-
-    private void DestroySelf()
-    {
-        DestroyImmediate(gameObject);
     }
 }
