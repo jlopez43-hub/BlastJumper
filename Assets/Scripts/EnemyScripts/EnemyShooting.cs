@@ -38,8 +38,7 @@ public class EnemyShooting : MonoBehaviour
         bulletTime = shootInterval;
 
         GameObject bulletObj = Instantiate(enemyBullet, firePoint.transform.position, firePoint.transform.rotation);
-        //For some reason the bulletObj gets instantiated twice. 
-        Debug.Log("ShootPlayer Triggered");
+        //Debug.Log("ShootPlayer Triggered");
         //Rigidbody bulletRigid = bulletObj.GetComponent<Rigidbody>();
         //bulletRigid.AddForce(bulletRigid.transform.forward * bulletSpeed);
         Destroy(bulletObj, 5f);
