@@ -27,6 +27,13 @@ public class Rocket : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))//makes it so it wont explode on the player tag
         {
+            /*
+             * //Old code to try and cause enemy to take damage from rocket collision
+            if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            {
+                enemyComponent.TakeDamage(20);
+            }
+            */
             GameObject _expl = Instantiate(expl, transform.position, transform.rotation);
             Destroy(_expl, explTime);
             knockBack();
@@ -39,13 +46,12 @@ public class Rocket : MonoBehaviour
         var surroundingObjects = Physics.OverlapSphere(transform.position, radius);
         foreach (var obj in surroundingObjects)
         {
-            Debug.Log(obj);
+            //Debug.Log(obj);
             var rb = obj.GetComponent<Rigidbody>();
-            Debug.Log(rb);
+            //Debug.Log(rb);
             if (rb == null) continue;
 
             rb.AddExplosionForce(explForce, transform.position, radius);
-
         }
         GameObject _expl = Instantiate(expl, transform.position, transform.rotation);
         Destroy(_expl, explTime);

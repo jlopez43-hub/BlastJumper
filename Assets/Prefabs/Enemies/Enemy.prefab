@@ -253,6 +253,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6671296110085490691}
   - component: {fileID: 5767907934242001413}
+  - component: {fileID: -8680988216618699842}
+  - component: {fileID: -5650863891309386465}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -294,6 +296,41 @@ MonoBehaviour:
   enemyBullet: {fileID: 2435691898687311998, guid: ccd24f3566177be4a9ed1651319e1547,
     type: 3}
   firePoint: {fileID: 4183985596873139934}
+--- !u!114 &-8680988216618699842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582632125199057003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceef30e458154d82aec89771c85cc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 20
+--- !u!65 &-5650863891309386465
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582632125199057003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1.6333563}
+  m_Center: {x: 0, y: 0, z: 0.016678125}
 --- !u!1 &1937454683891395720
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +554,6 @@ GameObject:
   - component: {fileID: 37619246682452418}
   - component: {fileID: 8081042077119478944}
   - component: {fileID: 1778047986933030991}
-  - component: {fileID: 7188525026392760392}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Enemy
@@ -594,24 +630,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7188525026392760392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168768082287137490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

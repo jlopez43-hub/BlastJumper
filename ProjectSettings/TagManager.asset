@@ -13,6 +13,8 @@ TagManager:
   - Wall
   - Pickup
   - EnemyBullet
+  - Rocket
+  - Explosion
   layers:
   - Default
   - TransparentFX
