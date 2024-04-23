@@ -15,6 +15,7 @@ TagManager:
   - EnemyBullet
   - Rocket
   - Explosion
+  - Level1End
   layers:
   - Default
   - TransparentFX
