@@ -38,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+  
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Hazard")
@@ -47,6 +49,10 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(20);
+        }
+        if(collision.gameObject.tag == "Pickup")
+        {
+            RestoreHealth(20);
         }
     }
 
@@ -58,6 +64,17 @@ public class PlayerHealth : MonoBehaviour
         //Set it to health bar - J
         healthBar.SetHealth(currentHealth);
     }
+
+    public void RestoreHealth(int heal)
+    {
+        currentHealth += heal;
+        Debug.Log("Heal for" + heal);
+
+        healthBar.SetHealth(currentHealth);
+
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
+    }
+
 
     private void Respawn()
     {
