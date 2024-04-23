@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        //healthBar.SetMaxHealth(maxHealth);
     }
 
     private void Update()
@@ -38,13 +38,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.tag == "Hazard")
+        if (collision.gameObject.tag == "Hazard")
         {
             TakeDamage(20);
         }
-        if (collider.gameObject.tag == "EnemyBullet")
+        if (collision.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(20);
         }
