@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    //event that will trigger upon enemy death. Can possibly be used for multiple purposes
+    public static event Action<Enemy> OnEnemyKilled;
+
     public float health;
     public float maxHealth = 20;
 
@@ -47,6 +51,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            //Broadcast Enemy killed
+            OnEnemyKilled?.Invoke(this);
         }
     }
 }
