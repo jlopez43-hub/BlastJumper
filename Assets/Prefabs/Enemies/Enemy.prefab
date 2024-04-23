@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  shootInterval: 3
+  shootInterval: 2
   enemyBullet: {fileID: 2435691898687311998, guid: ccd24f3566177be4a9ed1651319e1547,
     type: 3}
   firePoint: {fileID: 4183985596873139934}
