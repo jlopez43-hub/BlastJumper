@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 /*
- * Author[Judith Lopez]
+ * Author[Judith Lopez], edits by LeVassar, Leland
  * Date[03/31/2024]
  * RigidbodyMovement attached to the player
+ * Last edited by LeVassar, Leland on 4/24/24 to add sensitivity slider
  */
 
 public class RigidbodyMovement : MonoBehaviour
@@ -19,6 +21,8 @@ public class RigidbodyMovement : MonoBehaviour
     private Vector2 PlayerMouseInput;
     private float xRot;
     private float sensitivity = 2f;
+    //Sensitivity Slider 
+    public Slider slider;
     public Transform PlayerCamera;
     public Rigidbody PlayerBody;
 

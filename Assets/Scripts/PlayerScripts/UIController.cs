@@ -75,7 +75,7 @@ public class UIController : MonoBehaviour
         if (collider.gameObject.tag == "TutorialEnd")
         {
             //repurpose control text to tutorial end text
-            tmp_controlText.text = "TUTORIAL COMPLETE!";
+            tmp_controlText.text = "TEST CHAMBER 1 CLEARED";
             tmp_controlText.color = success_color;
         }
 
