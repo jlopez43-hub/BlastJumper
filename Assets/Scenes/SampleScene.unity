@@ -483,9 +483,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthPickup
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8955784178000054526, guid: 9b392eac477e540b5bc977c20ef40a2e, type: 3}
-    - {fileID: 1965876086423329030, guid: 9b392eac477e540b5bc977c20ef40a2e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
