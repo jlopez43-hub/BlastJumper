@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
       propertyPath: m_Name
-      value: PlayerController 1
+      value: PlayerControllerGood
       objectReference: {fileID: 0}
     - target: {fileID: 801678983830320856, guid: f898008a989fc495cb13ca3796161a2e,
         type: 3}
