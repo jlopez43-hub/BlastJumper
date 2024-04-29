@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Author: LeVassar, Leland
 //Purpose: Controls player health, damage taking logic, and respawning logic
@@ -14,6 +15,13 @@ public class PlayerHealth : MonoBehaviour
     public Transform RespawnPoint;
     //REMEMBER TO CONNECT TO HEALTH BAR
 
+    //Adding overlay when player gets damaged
+    [Header("Damagae Overlay")]
+    public Image overlay;
+    public float duration;
+    public float fadeSpeed;
+
+    private float durationTimer;
     //assigned health bar - J
     public HealthBar healthBar; 
 
@@ -21,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         //healthBar.SetMaxHealth(maxHealth);
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
     }
 
     private void Update()
@@ -35,6 +44,19 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             Respawn();  
+        }
+
+        if(overlay.color.a > 0)
+        {
+            durationTimer += Time.deltaTime;
+            if (durationTimer > duration)
+            {
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime * fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+
+            }
+
         }
     }
 
@@ -63,6 +85,8 @@ public class PlayerHealth : MonoBehaviour
         
         //Set it to health bar - J
         healthBar.SetHealth(currentHealth);
+        durationTimer = 0;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
     }
 
     public void RestoreHealth(int heal)
