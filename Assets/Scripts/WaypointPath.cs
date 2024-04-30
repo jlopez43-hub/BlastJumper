@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: LeVassar, Leland, help from Ketra Games tutorial
+ * Purpose: Controls logic for counting which waypoint we are on and moving to. 
+ * Created: 4/28/24
+ */
+
 public class WaypointPath : MonoBehaviour
 {
     public Transform GetWaypoint (int waypointIndex)

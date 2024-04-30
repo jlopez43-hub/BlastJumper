@@ -13,7 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public GameObject Player;
     public Transform RespawnPoint;
-    //REMEMBER TO CONNECT TO HEALTH BAR
+    public Transform newRespawnPoint;
+    
 
     //Adding overlay when player gets damaged
     [Header("Damagae Overlay")]
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        newRespawnPoint = RespawnPoint;
         currentHealth = maxHealth;
         //healthBar.SetMaxHealth(maxHealth);
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
@@ -78,6 +80,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Checkpoint")
+        {
+            newRespawnPoint = collider.gameObject.transform;
+            //Test log to see if transform is correctly assigned
+            Debug.Log("Transform collected " + gameObject.transform);
+        }
+    }
+
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -102,7 +114,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Respawn()
     {
-        Player.transform.position = RespawnPoint.position;
+        Player.transform.position = newRespawnPoint.position;
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);
     }
