@@ -310,6 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 20
+  HealthPickup: {fileID: 5493897659658366059, guid: 9b392eac477e540b5bc977c20ef40a2e,
+    type: 3}
 --- !u!65 &-5650863891309386465
 BoxCollider:
   m_ObjectHideFlags: 0
