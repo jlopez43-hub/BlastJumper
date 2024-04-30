@@ -18,16 +18,25 @@ public class Enemy : MonoBehaviour
     public float health;
     public float maxHealth = 20;
 
+    //for enemy to drop health pickup
+    public GameObject HealthPickup;
+
+
     public void Start()
     {
         //initializing health
         health = maxHealth;
     }
 
+
+    //Enemy damage
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Rocket")
         {
+            //droping health item
+            DropItem();
+
             Debug.Log("Hit Rocket");
             TakeDamage(20);
         }
@@ -40,6 +49,14 @@ public class Enemy : MonoBehaviour
             Debug.Log("Hit Explosion");
             TakeDamage(10);
         }
+
+    }
+
+    private void DropItem()
+    {
+        Instantiate(HealthPickup, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+
     }
 
     public void TakeDamage(float damageAmount)
