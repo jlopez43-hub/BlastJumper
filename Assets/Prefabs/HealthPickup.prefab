@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4197821918413631964}
   - component: {fileID: 945565021935031126}
   - component: {fileID: 5538368597408736977}
+  - component: {fileID: 2167549475410194544}
+  - component: {fileID: 7796778238367940437}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: Pickup
@@ -99,3 +101,38 @@ MonoBehaviour:
   pickup: 0
   myValue: 10
   rotAngle: 20
+--- !u!114 &2167549475410194544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493897659658366059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69887aa5c46d942f4b2262e13646efff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 20
+--- !u!64 &7796778238367940437
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493897659658366059}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

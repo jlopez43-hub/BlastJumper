@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2502191583975800289}
   - component: {fileID: 2230736058762761493}
   - component: {fileID: 931636918135456990}
+  - component: {fileID: -7655152835642864875}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 5
-  smoothing: 2
+  yRotationLimit: 88
 --- !u!136 &5353599581927987307
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -147,8 +148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpHeight: 3
+  slider: {fileID: 0}
   PlayerCamera: {fileID: 8322231781978339753}
   PlayerBody: {fileID: 2502191583975800289}
+  groundCheckDistance: 0
+  bufferCheckDistance: 0.1
 --- !u!114 &931636918135456990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +208,27 @@ MonoBehaviour:
   m_DefaultActionMap: Move
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7655152835642864875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801678983830320856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e474670abb31554089b5bf2f20dd34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  Player: {fileID: 0}
+  RespawnPoint: {fileID: 0}
+  newRespawnPoint: {fileID: 0}
+  overlay: {fileID: 0}
+  duration: 0
+  fadeSpeed: 0
+  healthBar: {fileID: 0}
 --- !u!1 &7702011598983295592
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +329,8 @@ MonoBehaviour:
   FirePoint: {fileID: 8245653097217173733}
   rocketPrefab: {fileID: 2948944945317594558, guid: 7cea250fe73f54991b6ef97626aeac9a,
     type: 3}
+  rocketForce: 0
+  firerate: 0
 --- !u!1 &8350118426660975147
 GameObject:
   m_ObjectHideFlags: 0
