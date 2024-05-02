@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6256140482220343374}
   m_Layer: 0
   m_Name: 5x1x5BlockFloor
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
