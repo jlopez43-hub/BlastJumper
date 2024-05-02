@@ -14,7 +14,13 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Player;
     public Transform RespawnPoint;
     public Transform newRespawnPoint;
-    
+
+    //Adding overlay when player gets damaged
+    [Header("Damagae Overlay")]
+    public Image overlay;
+    public float duration;
+    public float fadeSpeed;
+
 
     private float durationTimer;
     //assigned health bar - J
@@ -25,9 +31,11 @@ public class PlayerHealth : MonoBehaviour
     {
         newRespawnPoint = RespawnPoint;
         currentHealth = maxHealth;
+        //healthBar.SetMaxHealth(maxHealth);
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //test code to see if the health bar goes down when health goes down
         //if (Input.GetKeyDown(KeyCode.E))
@@ -40,6 +48,20 @@ public class PlayerHealth : MonoBehaviour
         {
             //Debug.Log("Respawning");
             Respawn();  
+        }
+
+
+        if (overlay.color.a > 0)
+        {
+            durationTimer += Time.deltaTime;
+            if (durationTimer > duration)
+            {
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime * fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+
+            }
+
         }
     }
 
@@ -77,7 +99,8 @@ public class PlayerHealth : MonoBehaviour
         //Set it to health bar - J
         healthBar.SetHealth(currentHealth);
         durationTimer = 0;
-     
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
+
     }
 
     public void RestoreHealth(int heal)
