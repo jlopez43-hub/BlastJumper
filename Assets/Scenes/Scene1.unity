@@ -27416,6 +27416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerControllerGood
       objectReference: {fileID: 0}
+    - target: {fileID: 6572557583080869017, guid: db87fb256f2ba134a9f928eea86b4ad5,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7321045780255747459, guid: db87fb256f2ba134a9f928eea86b4ad5,
         type: 3}
       propertyPath: speedText
