@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Debug.Log("Respawning");
+            //Debug.Log("Respawning");
             Respawn();  
         }
 
@@ -62,8 +62,6 @@ public class PlayerHealth : MonoBehaviour
 
         }
     }
-
-  
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -87,7 +85,7 @@ public class PlayerHealth : MonoBehaviour
         {
             newRespawnPoint = collider.gameObject.transform;
             //Test log to see if transform is correctly assigned
-            Debug.Log("Transform collected " + gameObject.transform);
+            //Debug.Log("Transform collected " + gameObject.transform);
         }
     }
 

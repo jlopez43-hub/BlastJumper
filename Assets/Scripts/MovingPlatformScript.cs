@@ -3,57 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Author: Leland LeVassar, help from Ketra Games tutorial
- * Purpose: To control the logic for moving between waypoints as well as the timing and direction
+ * Author: Leland LeVassar, help from PitilT tutorial
+ * Purpose: To control the logic for moving between waypoints and checking when to change direction
  * Created: 4/28/24
  */
 
 public class MovingPlatformScript : MonoBehaviour
 {
-    [SerializeField]
-    private WaypointPath _waypointPath;
-
+    [SerializeField] 
+    private Transform[] _waypoints;
     [SerializeField]
     private float _speed;
+    [SerializeField]
+    private float _checkDistance = 0.05f;
 
-    private int _targetWaypointIndex;
-
-    private Transform _previousWaypoint;
     private Transform _targetWaypoint;
-
-    private float _timeToWaypoint;
-    private float _elapsedTime;
+    private int _currentWaypointIndex = 0;
 
     private void Start()
     {
-        TargetNextWaypoint();
+        _targetWaypoint = _waypoints[0];
     }
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _targetWaypoint.position, _speed * Time.deltaTime);
 
-        float elapsedPercentage = _elapsedTime / _timeToWaypoint;
-        //smoothing controls
-        elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
-        //using Lerp to travel between points
-        transform.position = Vector3.Lerp(_previousWaypoint.position, _targetWaypoint.position, elapsedPercentage);
-
-        if (elapsedPercentage >= 1)
+        if (Vector3.Distance(transform.position, _targetWaypoint.position) < _checkDistance)
         {
-            TargetNextWaypoint();
+            _targetWaypoint = GetNextWaypoint(); 
         }
     }
 
-    private void TargetNextWaypoint()
+    private Transform GetNextWaypoint()
     {
-        _previousWaypoint = _waypointPath.GetWaypoint(_targetWaypointIndex);
-        _targetWaypointIndex = _waypointPath.GetNextWayPointIndex(_targetWaypointIndex);
-        _targetWaypoint = _waypointPath.GetWaypoint(_targetWaypointIndex);
+        _currentWaypointIndex++;
+        if(_currentWaypointIndex >= _waypoints.Length)
+        {
+            _currentWaypointIndex = 0;
+        }
 
-        _elapsedTime = 0;
-
-        float distanceToWaypoint = Vector3.Distance(_previousWaypoint.position, _targetWaypoint.position);
-        _timeToWaypoint = distanceToWaypoint / _speed;
+        return _waypoints[_currentWaypointIndex];
     }
 }
