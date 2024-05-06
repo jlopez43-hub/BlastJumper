@@ -15,17 +15,21 @@ public class Enemy : MonoBehaviour
     //event that will trigger upon enemy death. Can possibly be used for multiple purposes
     public static event Action<Enemy> OnEnemyKilled;
 
-    public float health;
-    public float maxHealth = 20;
+    public int health;
+    public int maxHealth = 20;
 
     //for enemy to drop health pickup
     public GameObject HealthPickup;
+
+    //healthBar for enemy
+    public EnemyHealth enemyHealth;
 
 
     public void Start()
     {
         //initializing health
         health = maxHealth;
+        enemyHealth.SetMaxHealth(maxHealth);
     }
 
 
@@ -59,11 +63,13 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(int damage)
     {
         //reducing health logic
-        health -= damageAmount;
-        Debug.Log("Enemy Damaged for " + damageAmount);
+        health -= damage;
+        Debug.Log("Enemy Damaged for " + damage);
+
+        enemyHealth.SetHealth(health);
 
         if (health <= 0)
         {
