@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public static event Action<Enemy> OnEnemyKilled;
 
     public int health;
-    public int maxHealth = 20;
+    public int maxHealth;
 
     //for enemy to drop health pickup
     public GameObject HealthPickup;
