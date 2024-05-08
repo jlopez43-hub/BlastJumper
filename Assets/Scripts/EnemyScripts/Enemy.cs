@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
+
 /*
  * Author[Judith Lopez and LeVassar, Leland]
  * Date [04/02/2024]
@@ -15,8 +16,8 @@ public class Enemy : MonoBehaviour
     //event that will trigger upon enemy death. Can possibly be used for multiple purposes
     public static event Action<Enemy> OnEnemyKilled;
 
-    public int health;
-    public int maxHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     //for enemy to drop health pickup
     public GameObject HealthPickup;
@@ -28,11 +29,12 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         //initializing health
-        health = maxHealth;
+        currentHealth = maxHealth;
         enemyHealth.SetMaxHealth(maxHealth);
+        //enemyHealth.SetMaxHealth(maxHealth);
     }
 
-
+  
     //Enemy damage
     private void OnCollisionEnter(Collision collision)
     {
@@ -46,15 +48,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.tag == "Explosion")
-        {
-            Debug.Log("Hit Explosion");
-            TakeDamage(10);
-        }
+   // private void OnTriggerEnter(Collider collider)
+    //{
+        //if (collider.gameObject.tag == "Explosion")
+        //{
+            //Debug.Log("Hit Explosion");
+            //TakeDamage(10);
+        //}
 
-    }
+    //}
 
     private void DropItem()
     {
@@ -63,19 +65,19 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    void TakeDamage(int damage)
     {
         //reducing health logic
-        health -= damage;
-        Debug.Log("Enemy Damaged for " + damage);
+        currentHealth -= damage;
+        //Debug.Log("Enemy Damaged for " + damage);
 
-        enemyHealth.SetHealth(health);
+        enemyHealth.SetHealth(currentHealth);
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
             //Broadcast Enemy killed
-            OnEnemyKilled?.Invoke(this);
+            //OnEnemyKilled?.Invoke(this);
         }
     }
 }

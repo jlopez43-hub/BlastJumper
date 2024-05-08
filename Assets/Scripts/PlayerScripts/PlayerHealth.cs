@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Author: LeVassar, Leland
+//Author: LeVassar, Leland & Lopez, Judith
 //Purpose: Controls player health, damage taking logic, and respawning logic
 //Date: 4/9/2024
 
