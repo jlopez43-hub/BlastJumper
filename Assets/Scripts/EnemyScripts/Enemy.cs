@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         //initializing health
         currentHealth = maxHealth;
         enemyHealth.SetMaxHealth(maxHealth);
-        
+        //enemyHealth.SetMaxHealth(maxHealth);
     }
 
   
@@ -48,15 +48,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.tag == "Explosion")
-        {
-            Debug.Log("Hit Explosion");
-            TakeDamage(10);
-        }
+   // private void OnTriggerEnter(Collider collider)
+    //{
+        //if (collider.gameObject.tag == "Explosion")
+        //{
+            //Debug.Log("Hit Explosion");
+            //TakeDamage(10);
+        //}
 
-    }
+    //}
 
     private void DropItem()
     {
