@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /*
@@ -25,13 +26,15 @@ public class Enemy : MonoBehaviour
     //healthBar for enemy
     public EnemyHealth enemyHealth;
 
+    //reference to the UI slider that it representing health
+    public Slider enemyHealthbar;
+  
 
-    public void Start()
+
+    public void Awake()
     {
         //initializing health
         currentHealth = maxHealth;
-        enemyHealth.SetMaxHealth(maxHealth);
-        
     }
 
   
@@ -53,7 +56,7 @@ public class Enemy : MonoBehaviour
         if (collider.gameObject.tag == "Explosion")
         {
             Debug.Log("Hit Explosion");
-            TakeDamage(10);
+            TakeDamage(20);
         }
 
     }
@@ -69,7 +72,7 @@ public class Enemy : MonoBehaviour
     {
         //reducing health logic
         currentHealth -= damage;
-        //Debug.Log("Enemy Damaged for " + damage);
+        Debug.Log("Enemy Damaged for " + damage);
 
         enemyHealth.SetHealth(currentHealth);
 
@@ -77,7 +80,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             //Broadcast Enemy killed
-            //OnEnemyKilled?.Invoke(this);
+            OnEnemyKilled?.Invoke(this);
         }
+
+        
     }
+
 }
