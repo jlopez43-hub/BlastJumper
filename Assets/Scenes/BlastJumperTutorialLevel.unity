@@ -44813,7 +44813,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   RespawnPoint: {fileID: 1373572118}
   newRespawnPoint: {fileID: 0}
-  overlay: {fileID: 0}
+  overlay: {fileID: 422200957}
   duration: 0
   fadeSpeed: 0
   healthBar: {fileID: 0}

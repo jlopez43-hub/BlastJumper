@@ -9,11 +9,24 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+
+    private void Start()
+    {
+        CameraEnabled = true;
+    }
+
     public float Sensitivity
     {
         get { return sensitivity; }
         set { sensitivity = value; }
     }
+
+    public bool CameraEnabled
+    {
+        get { return cameraEnabled; }
+        set { cameraEnabled = value; }
+    }
+
     [Range(0.1f, 9f)][SerializeField] float sensitivity = 2f;
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
     [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
@@ -22,15 +35,20 @@ public class CameraScript : MonoBehaviour
     const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
     const string yAxis = "Mouse Y";
 
+    bool cameraEnabled = true;
+
     void Update()
     {
-        rotation.x += Input.GetAxis(xAxis) * sensitivity;
-        rotation.y += Input.GetAxis(yAxis) * sensitivity;
-        rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
-        var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
-        var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
+        if (cameraEnabled)
+        {
+            rotation.x += Input.GetAxis(xAxis) * sensitivity;
+            rotation.y += Input.GetAxis(yAxis) * sensitivity;
+            rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
+            var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
+            var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
-        transform.localRotation = xQuat * yQuat;
+            transform.localRotation = xQuat * yQuat;
+        }
     }
 
 }
