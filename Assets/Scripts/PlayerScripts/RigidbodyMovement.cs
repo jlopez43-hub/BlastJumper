@@ -75,7 +75,7 @@ public class RigidbodyMovement : MonoBehaviour
 
             jumpCounter--;
 
-            Debug.Log("Jump:" + context.phase);
+            //Debug.Log("Jump:" + context.phase);
             if (context.performed)
             {
                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpHeight, ForceMode.Force);
